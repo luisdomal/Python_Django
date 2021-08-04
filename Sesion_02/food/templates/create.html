@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Crear nuevo alimento</h1>
+
+<form action="{% url 'food:create' %}" method="POST">
+  {% csrf_token %}
+  <p>
+    <label for="name-id">Nombre:</label>
+    <input type="text" name="name" id="name-id" />
+  </p>
+  <button type="submit">Crear</button>
+</form>
+{% endblock content %}

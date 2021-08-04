@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Mis Lenguajes favoritos de programación</h1>
+<ul>
+    {% for lenguaje in lenguajes %}
+    <li>{{ lenguaje }}</li>
+    {% endfor %}
+</ul>
+{% endblock content %}
