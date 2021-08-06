@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear</title>
+</head>
+<body>
+  <h1>Crear canción</h1>
+
+  <form method="post">
+    {% csrf_token %}
+    <p>
+      <label for="song-title">Título</label>
+      <input type="text" name="song_title" id="song-title">
+    </p>
+
+    <p>
+      <label for="artist-name">Artista</label>
+      <input type="text" name="artist_name" id="artist-name">
+    </p>
+
+    <p>
+      <label for="album-title">Álbum</label>
+      <input type="text" name="album_title" id="album-title">
+    </p>
+
+    <button type="submit">Crear</button>
+  </form>
+</body>
+</html>
