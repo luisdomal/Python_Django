@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canción</title>
+</head>
+<body>
+  <h1>{{song.title}}</h1>
+  <p>{{ song.artist.name}}</p>
+  <p>{{ song.album.title}}</p>
+
+  <audio controls>
+    <source src="{{ song.file.url }}" type="audio/mpeg">
+    Tu navegador no soporta el elementro de audio
+  </audio>
+  <br>
+  <a href="{% url 'music:create' %}">Crear Cancion</a>
+
+</body>
+</html>

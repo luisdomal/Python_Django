@@ -9,7 +9,7 @@
 <body>
   <h1>Crear canción</h1>
 
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <p>
       <label for="song-title">Título</label>
@@ -24,6 +24,11 @@
     <p>
       <label for="album-title">Álbum</label>
       <input type="text" name="album_title" id="album-title">
+    </p>
+
+    <p>
+      <label for="song-file">Álbum</label>
+      <input type="file" name="song_file" id="song-file">
     </p>
 
     <button type="submit">Crear</button>

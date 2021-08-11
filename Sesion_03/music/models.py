@@ -25,6 +25,8 @@ class Song(models.Model):
     title = models.CharField(max_length=255)
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
+    file = models.FileField(upload_to='music/')
 
     def __str__(self):
         return self.title
+

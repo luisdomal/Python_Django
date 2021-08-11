@@ -12,7 +12,7 @@
   <ul>
     {% for movie in movies %}
       <li>
-        {{ movie.title }} - {{ movie.director.name }}
+        {{ movie.title }} - {{ movie.director.name }} - {{ movie.year.year}}
       </li>
     {% endfor %}
   </ul>

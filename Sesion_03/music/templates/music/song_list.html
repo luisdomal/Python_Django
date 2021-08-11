@@ -9,10 +9,14 @@
 <body>
   <h1>Mis canciones</h1>
 
+  <a href="{% url 'music:create' %}">Crear Cancion</a>
+
   <ul>
     {% for song in songs %}
       <li>
         {{ song.title }} - {{ song.artist.name }} - {{ song.album.title }}
+        <br>
+        <a href="{% url 'music:detail' song.pk %}">Ver Detalle</a>
       </li>
     {% endfor %}
   </ul>

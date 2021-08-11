@@ -23,7 +23,7 @@ def calculadora(request, operacion, a, b):
         }
     elif operacion == "division":
         if b == 0:
-            print ("Error: División entre 0")
+            result = "Error: Division entre 0"   
         else:
             result = a / b
             result= "La division de {} / {} = {}".format(a, b, result)

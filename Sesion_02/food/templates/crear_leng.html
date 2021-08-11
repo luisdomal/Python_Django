@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Agregar nuevo lenguaje</h1>
+
+<form action="{% url 'food:crear_leng' %}" method="POST">
+  {% csrf_token %}  <!--Siempre se debe poner por seguridad -->
+  <p>
+    <label for="name-id">Nombre:</label>
+    <input type="text" name="name" id="name-id" />
+  </p>
+  <button type="submit">Crear</button>
+</form>
+
+
+<h1>Mi lista de lenguajes de programación</h1>
+  {% if lenguajes %}
+    <ul>
+      {% for item in lenguajes %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No hay Lenguajes</p>
+  {% endif %}
+
+
+<h1>Mi lista de lenguajes de programación</h1>
+  {% if lenguajes_list %}
+    <ul>
+      {% for item in lenguajes_list %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No hay Lenguajes</p>
+  {% endif %}
+  {% endblock content %}

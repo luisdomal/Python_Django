@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from .models import Song, Artist, Album
 
@@ -16,10 +16,18 @@ def create_song(request):
         song_title = request.POST.get("song_title")
         artist_name = request.POST.get("artist_name")
         album_title = request.POST.get("album_title")
+        song_file = request.FILES.get("song_file")
         artist, _created = Artist.objects.get_or_create(name=artist_name)
         album, _created = Album.objects.get_or_create(title=album_title, artist=artist)
-        song = Song(title=song_title, artist=artist, album=album)
+        song = Song(title=song_title, artist=artist, album=album, file=song_file)
         song.save()
         return redirect("music:list")
 
     return render(request, 'music/song_create.html')
+
+def song_detail(request, pk):
+    """ Shows a Song detail"""
+    song = get_object_or_404(Song, pk=pk)
+    song = Song.objects.get(pk=pk)
+    return render(request, 'music/song_detail.html', {"song":song})
+

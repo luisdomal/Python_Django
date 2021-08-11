@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Mis Lenguajes favoritos de programación</h1>
-<ul>
-    {% for lenguaje in lenguajes %}
-    <li>{{ lenguaje }}</li>
-    {% endfor %}
-</ul>
+<h1>Mi lista de lenguajes de programación</h1>
+  {% if lenguajes_list %}
+    <ul>
+      {% for item in lenguajes_list %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No hay Lenguajes</p>
+  {% endif %}
 {% endblock content %}
