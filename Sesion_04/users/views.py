@@ -1,8 +1,8 @@
 """Users app views"""
 
 from django.http import HttpResponse
-from django.contrib.auth import authenticate, login
-from django.shortcuts import render
+from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import redirect, render
 
 
 def users_login(request):
@@ -13,5 +13,5 @@ def users_login(request):
         user = authenticate(request, username=username, password=password)
         if user:
             login(request, user)
-            return HttpResponse("Hola {}, estás autenticado.".format(user.first_name))
+            return render(request, "users/home.html")
     return render(request, "users/login.html")
