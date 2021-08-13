@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tweets</title>
+</head>
+<body>
+    <section>
+        <h1>Últimas noticias</h1>
+
+        {% for tweet in object_list %}
+        <article>
+        <p>{{ tweet.content }}</p>
+        <p><strong>@{{ tweet.user.username }}</strong></p>
+        <p><small><i>{{ tweet.created_at }}</i></small></p>
+        <hr />
+        </article>
+        {% endfor %}
+
+    </section>
+</body>
+</html>

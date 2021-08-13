@@ -56,7 +56,9 @@ ROOT_URLCONF = 'twitter.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [str(BASE_DIR.joinpath('templates'))],
+        'DIRS': [
+            BASE_DIR / "templates" #Se ocupa para poder hacer una sola carpeta no tener una carpeta de templates en cada app
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,8 +71,9 @@ TEMPLATES = [
     },
 ]
 
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home' 
+LOGIN_URL = 'users:login' # La vista a la que @login_required nos manda cuando un usario no esta autenticado
+LOGIN_REDIRECT_URL = 'users:profile' # La vista a donde el usuario será enviado cuando incie sesion
+LOGOUT_REDIRECT_URL = 'users:login' # La vista a donde el usuario será enviado cuando cierre sesión
 
 WSGI_APPLICATION = 'twitter.wsgi.application'
 

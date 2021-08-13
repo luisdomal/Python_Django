@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+    <h1>@{{ request.user.username }}</h1>
+
+    {% with request.user as user %}
+        <ul>
+            <li>{{ user.first_name }}</li>
+            <li>{{ user.last_name }}</li>
+            <li>{{ user.email }}</li>
+        </ul>
+    {% endwith %}
+
+    <section>
+        <h2>Tweets</h2>
+    
+        {% for tweet in tweets %}
+            <article>
+                <p>{{ tweet.content }}</p>
+                <p>
+                    <i>
+                        <small>
+                            {{ tweet.created_at }}
+                        </small>
+                    </i>
+                </p>
+            </article>
+            <hr />
+        {% endfor %}
+    </section>
+
+
+    <a href="{% url 'users:logout' %}">Cerrar sesión</a>
+</body>
+</html>
