@@ -1,0 +1,36 @@
+type Movie {
+  name: String
+  releaseDate: String
+  rating: Int
+  director: Director
+}
+
+type Director {
+  name: String
+  age: Int
+  location: Location
+}
+
+type Location {
+  name: String
+}
+
+type Query {
+  allMovies: [Movie!]!
+  movie(id: ID!): Movie!
+}
+
+type Mutation {
+  addMovie(movie: MovieInput!): Movie
+}
+
+type Subscription {
+  onMovieRelease(releaseDate: String): Movie
+}
+
+
+input MovieInput {
+  name: String!
+  releaseDate: String!
+  rating: Int!
+}
