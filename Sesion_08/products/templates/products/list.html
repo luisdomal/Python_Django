@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Productos</title>
+</head>
+<body>
+    <h1>Productos</h1>
+    <section>
+        {% for product in object_list %}
+            <article>
+                <h3>{{ product.name }} - ${{ product.price }}</h3>
+                <a href="{% url 'products:checkout' product.pk %}">Comprar</a>
+            </article>
+        {% endfor %}
+    </section>
+</body>
+</html>

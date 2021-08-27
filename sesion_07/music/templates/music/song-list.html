@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>Mis Canciones</title>
+</head>
+<body>
+<h1>Mis canciones</h1>
+<a href="{% url 'music:create' %}">Crear</a>
+
+<ul>
+    {% for song in songs %}
+        <li>
+            {{ song.title }} - {{ song.artist.name }} - {{ song.album.title }}
+            <br/>
+            <a href="{% url 'music:detail' song.pk %}">Ver detalle</a>
+        </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>
